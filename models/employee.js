@@ -2,34 +2,34 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 //Employee Scheema
-const employeeSchema = new shcema({
+const employeeSchema = new schema({
 	employeeId : {
-		type: string,
+		type: String,
 		required: true
 	},
 	firstName: {
-		type: string,
+		type: String,
 		required: true
 	},
 	lastName: {
-		type:string, 
+		type: String, 
 		required: true
 	},
 	email: {
-		type:string,
+		type: String,
 		required: true
 	},
 	password: {
-		type: string,
+		type: String,
 		required: true,
 	},
 	DOB: {
-		type: date,
+		type: Date,
 		required: false
 	}
 }, {timestamps: true});
 
-const employee = mongoose.model('employeeData', employeeSchema);
+module.exports = mongoose.model('Employee', employeeSchema);
 
-module.export = employee;
+//module.export = Employee;
 
