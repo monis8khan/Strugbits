@@ -26,6 +26,30 @@ const employeeSchema = new schema({
 	DOB: {
 		type: Date,
 		required: false
+	},
+	CNIC: {
+		type: String,
+		required: true
+	},
+	gender: {
+		type: String,
+		required: true
+	},
+	exp: {
+		type: String,
+		required: true
+	},
+	designation: {
+		type: String,
+		required: true
+	},
+	address: {
+		type: String,
+		required: true
+	},
+	phoneNo: {
+		type: String,
+		required: true
 	}
 }, {timestamps: true});
 

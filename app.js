@@ -4,6 +4,10 @@ var Employee = require('./models/employee')
 
 //Express App Initialization
 let app = express();
+
+//middleware Urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 //Mongo DB URI
 const dbUri = 'mongodb+srv://monis8khan:sr20dett@testing.bvbcz.mongodb.net/Employee?retryWrites=true&w=majority'
 //Mongoose App initialize
@@ -52,4 +56,33 @@ app.get('/employee', (req, res)=>{
 	Employee.findById('6044b2f24f36312c45c00b2b').then((result)=>{
 	res.send(result);
 	}).catch(err=>{console.log(err)});
+})
+
+
+//POST API FOR NEW EMPLOYEE
+app.post('/employee', async (req,res)=>{
+	console.log(req.body);
+	let toInsert = {
+	employeeId: req.body.employeeId,
+	password: req.body.password,
+	email: req.body.email,
+	firstName: req.body.firstName,
+	lastName: req.body.lastName,
+	DOB: req.body.DOB,
+	CNIC: req.body.CNIC,
+	gender: req.body.gender,
+	exp: req.body.exp,
+	designation: req.body.designation,
+	address: req.body.address,
+	phoneNo: req.body.phoneNo
+	}
+	let newEmployee = new Employee(toInsert);
+	let response = await newEmployee.save().then((result)=>{
+		console.log('New Employee Inserted', result);
+		return result;
+	}).catch((err)=>{
+		console.log('Error: ',err);
+		return result
+	});
+	res.send(response);
 })
