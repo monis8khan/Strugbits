@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Employee = require('./models/employee')
-var authRoutes = require('./routes/auth-routes');
+var api = require('./routes/auth-routes');
 
 //Express App Initialization
 let app = express();
@@ -60,6 +60,7 @@ app.get('/employee', (req, res)=>{
 })
 
 
+
 //POST API FOR NEW EMPLOYEE
 app.post('/employee', async (req,res)=>{
 	console.log(req.body);
@@ -89,4 +90,4 @@ app.post('/employee', async (req,res)=>{
 })
 
 //route for login, exported from authRoute
-app.use('/auth', authRoutes);
+app.use('/api', api);
