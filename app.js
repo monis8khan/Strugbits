@@ -67,29 +67,29 @@ app.get('/employee', (req, res)=>{
 //POST API FOR NEW EMPLOYEE
 app.post('/employee', async (req,res)=>{
 	console.log(req.body);
-	let toInsert = {
-	employeeId: req.body.employeeId,
-	password: req.body.password,
-	email: req.body.email,
-	firstName: req.body.firstName,
-	lastName: req.body.lastName,
-	DOB: req.body.DOB,
-	CNIC: req.body.CNIC,
-	gender: req.body.gender,
-	exp: req.body.exp,
-	designation: req.body.designation,
-	address: req.body.address,
-	phoneNo: req.body.phoneNo
-	}
-	let newEmployee = new Employee(toInsert);
-	let response = await newEmployee.save().then((result)=>{
-		console.log('New Employee Inserted', result);
-		return result;
-	}).catch((err)=>{
-		console.log('Error: ',err);
-		return result
-	});
-	res.send(response);
+//	let toInsert = {
+//	employeeId: req.body.employeeId,
+//	password: req.body.password,
+//	email: req.body.email,
+//	firstName: req.body.firstName,
+//	lastName: req.body.lastName,
+//	DOB: req.body.DOB,
+//	CNIC: req.body.CNIC,
+//	gender: req.body.gender,
+//	exp: req.body.exp,
+//	designation: req.body.designation,
+//	address: req.body.address,
+//	phoneNo: req.body.phoneNo
+//	}
+//	let newEmployee = new Employee(toInsert);
+//	let response = await newEmployee.save().then((result)=>{
+//		console.log('New Employee Inserted', result);
+//		return result;
+//	}).catch((err)=>{
+//		console.log('Error: ',err);
+//		return result
+//	});
+	res.send(req.body);
 })
 
 //route for login, exported from authRoute
