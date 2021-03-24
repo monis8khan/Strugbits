@@ -9,6 +9,8 @@ let app = express();
 
 //middleware Urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 //Mongo DB URI
 const dbUri = 'mongodb+srv://monis8khan:sr20dett@testing.bvbcz.mongodb.net/Employee?retryWrites=true&w=majority'
